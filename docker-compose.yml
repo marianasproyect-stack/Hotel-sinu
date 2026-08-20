@@ -1,0 +1,30 @@
+services:
+  hotel-api:
+    build:
+      context: ./hotel-api/hotel-api
+      dockerfile: Dockerfile
+    image: hotel-api:latest
+    ports:
+      - "${BACKEND_PORT:-8081}:8081"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      PORT: ${PORT:-8081}
+      TZ: UTC
+      JAVA_TOOL_OPTIONS: -Duser.timezone=UTC
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL:-jdbc:oracle:thin:@host.docker.internal:1521:XE}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME:-hotel}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD:-ho123}
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: ${SPRING_DATASOURCE_DRIVER_CLASS_NAME:-oracle.jdbc.OracleDriver}
+    restart: unless-stopped
+
+  hotel-frontend:
+    build:
+      context: ./static/static
+      dockerfile: Dockerfile
+    image: hotel-frontend:latest
+    ports:
+      - "${FRONTEND_PORT:-8080}:80"
+    depends_on:
+      - hotel-api
+    restart: unless-stopped

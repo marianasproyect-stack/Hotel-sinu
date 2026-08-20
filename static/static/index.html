@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Sinú</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ===================== LOGIN ===================== -->
+<div id="login-section" class="auth-wrapper">
+  <div class="auth-card">
+    <div class="auth-side">
+      <div class="auth-side-logo">🏨</div>
+      <h1 class="titulo-hotel">Hotel Sinú</h1>
+      <p class="auth-side-frase">Descansa junto al río, vive la Sabana cordobesa.</p>
+    </div>
+    <div class="auth-form-side">
+      <h2>Iniciar sesión</h2>
+      <p class="auth-sub">Inicia sesión para empezar a reservar tu próxima estadía.</p>
+      <p id="login-error" class="error"></p>
+      <form id="login-form">
+        <label for="login-nombre">Nombre</label>
+        <input type="text" id="login-nombre" placeholder="Ej: Mari Ramos" required>
+
+        <label for="login-password">Contraseña</label>
+        <input type="password" id="login-password" placeholder="••••••••" required>
+
+        <button type="submit">Entrar</button>
+      </form>
+      <p class="auth-switch">¿No tienes cuenta? <a href="#" id="link-registro">Regístrate aquí</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== REGISTRO ===================== -->
+<div id="register-section" class="auth-wrapper" style="display:none">
+  <div class="auth-card">
+    <div class="auth-side">
+      <div class="auth-side-logo">🏨</div>
+      <h1 class="titulo-hotel">Hotel Sinú</h1>
+      <p class="auth-side-frase">Crea tu cuenta y empieza a reservar en minutos.</p>
+    </div>
+    <div class="auth-form-side">
+      <h2>Crear cuenta</h2>
+      <p id="register-error" class="error"></p>
+      <form id="register-form">
+        <label for="reg-nombre">Nombre <span class="req">*</span></label>
+        <input type="text" id="reg-nombre" required>
+
+        <div id="reg-cliente-campos">
+          <label for="reg-apellido">Apellido <span class="req">*</span></label>
+          <input type="text" id="reg-apellido" required>
+
+          <label for="reg-documento">Documento <span class="req">*</span></label>
+          <input type="text" id="reg-documento" required>
+
+          <label for="reg-telefono">Teléfono <span class="req">*</span></label>
+          <input type="text" id="reg-telefono" required>
+        </div>
+
+        <label for="reg-correo">Correo <span class="req">*</span></label>
+        <input type="email" id="reg-correo" required>
+
+        <label for="reg-password">Contraseña <span class="req">*</span></label>
+        <input type="password" id="reg-password" required minlength="4">
+
+        <button type="submit">Registrarme</button>
+      </form>
+      <p class="auth-switch">¿Ya tienes cuenta? <a href="#" id="link-login">Inicia sesión</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PANEL CLIENTE ===================== -->
+<div id="cliente-section" style="display:none">
+  <header class="topbar">
+    <span class="titulo-hotel">🏨 Hotel Sinú</span>
+    <div class="topbar-derecha">
+      <span id="cliente-puntos" class="puntos"></span>
+      <span id="cliente-nombre"></span>
+      <button id="btn-logout-cliente">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <!-- Pantalla de bienvenida -->
+  <section id="bienvenida-section" class="bienvenida">
+    <div class="bienvenida-imagen" id="bienvenida-imagen">
+      <img src="https://images.pexels.com/photos/15995605/pexels-photo-15995605.jpeg?auto=compress&cs=tinysrgb&w=1200"
+           alt="Hotel junto al agua, rodeado de vegetación tropical"
+           loading="lazy">
+    </div>
+    <h1 id="bienvenida-titulo">¡Bienvenido a Hotel Sinú!</h1>
+    <p>Nos alegra tenerte de nuevo. Cuando quieras, explora las habitaciones disponibles y elige la que mejor se ajuste a tu estadía junto al río Sinú.</p>
+    <button id="btn-ver-habitaciones" class="btn-principal">Ver habitaciones disponibles</button>
+  </section>
+
+  <!-- Habitaciones (ocultas hasta que el cliente lo pida) -->
+  <section id="habitaciones-section" class="habitaciones-section" style="display:none">
+    <div class="habitaciones-header">
+      <h2>Habitaciones</h2>
+      <button id="btn-volver-bienvenida" class="btn-secundario">← Volver</button>
+    </div>
+    <p id="habitaciones-msg"></p>
+    <div id="habitaciones-list" class="rooms-grid"></div>
+  </section>
+</div>
+
+<!-- ===================== MODAL RESERVA ===================== -->
+<div id="reserva-modal" class="modal" style="display:none">
+  <div class="modal-content">
+    <h3 id="reserva-titulo">Reservar habitación</h3>
+    <p id="reserva-error" class="error"></p>
+    <p id="reserva-ok" class="ok"></p>
+    <form id="reserva-form">
+      <label for="reserva-entrada">Fecha de entrada</label>
+      <div class="date-field">
+        <input type="text" id="reserva-entrada" class="date-input" placeholder="dd/mm/aaaa" autocomplete="off" readonly required>
+      </div>
+
+      <label for="reserva-salida">Fecha de salida</label>
+      <div class="date-field">
+        <input type="text" id="reserva-salida" class="date-input" placeholder="dd/mm/aaaa" autocomplete="off" readonly required>
+      </div>
+
+      <button type="submit">Confirmar reserva</button>
+      <button type="button" id="btn-cerrar-modal">Cancelar</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===================== PANEL ADMIN ===================== -->
+<div id="admin-section" style="display:none">
+  <header class="topbar topbar-admin">
+    <span class="titulo-hotel">🏨 Hotel Sinú · Administrador</span>
+    <div class="topbar-derecha">
+      <span id="admin-nombre"></span>
+      <button id="btn-logout-admin">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <!-- Menú principal del panel -->
+  <section id="admin-menu-section" class="admin-contenido">
+    <h1>Panel de administrador</h1>
+    <p class="admin-intro">Elige una entidad para ver y gestionar su información.</p>
+
+    <div class="admin-menu-grid" id="admin-menu-grid">
+      <button class="admin-menu-card" data-entidad="clientes">
+        <span class="admin-menu-icono">👤</span>
+        <span class="admin-menu-titulo">Clientes</span>
+        <span class="admin-menu-desc">Datos de contacto, documento y puntos</span>
+      </button>
+      <button class="admin-menu-card" data-entidad="habitaciones">
+        <span class="admin-menu-icono">🛏️</span>
+        <span class="admin-menu-titulo">Habitaciones</span>
+        <span class="admin-menu-desc">Tipos, precios y disponibilidad</span>
+      </button>
+      <button class="admin-menu-card" data-entidad="reservas">
+        <span class="admin-menu-icono">📅</span>
+        <span class="admin-menu-titulo">Reservas</span>
+        <span class="admin-menu-desc">Entradas, salidas y estado</span>
+      </button>
+      <button class="admin-menu-card" data-entidad="llegadas-hoy">
+        <span class="admin-menu-icono">🛎️</span>
+        <span class="admin-menu-titulo">Llegadas de hoy</span>
+        <span class="admin-menu-desc">Huéspedes confirmados que entran hoy</span>
+      </button>
+      <button class="admin-menu-card" data-entidad="salidas-hoy">
+        <span class="admin-menu-icono">🧳</span>
+        <span class="admin-menu-titulo">Salidas de hoy</span>
+        <span class="admin-menu-desc">Huéspedes alojados que salen hoy</span>
+      </button>
+      <button class="admin-menu-card" data-entidad="pagos">
+        <span class="admin-menu-icono">💳</span>
+        <span class="admin-menu-titulo">Pagos</span>
+        <span class="admin-menu-desc">Montos, métodos y estado de pago</span>
+      </button>
+      <button class="admin-menu-card" data-entidad="resenas">
+        <span class="admin-menu-icono">⭐</span>
+        <span class="admin-menu-titulo">Reseñas</span>
+        <span class="admin-menu-desc">Calificaciones y comentarios</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Vista de tabla por entidad -->
+  <section id="admin-tabla-section" class="admin-contenido" style="display:none">
+    <div class="admin-tabla-header">
+      <h1 id="admin-tabla-titulo">Entidad</h1>
+      <div class="admin-tabla-acciones">
+        <input type="text" id="buscar-apellido" placeholder="Buscar por apellido..." style="display:none">
+        <select id="filtro-estado-reserva" style="display:none">
+          <option value="">Todos los estados</option>
+          <option value="PENDIENTE">Pendiente</option>
+          <option value="CONFIRMADA">Confirmada</option>
+          <option value="EN_CURSO">En curso</option>
+          <option value="FINALIZADA">Finalizada</option>
+          <option value="CANCELADA">Cancelada</option>
+        </select>
+        <button id="btn-agregar-habitacion" class="btn-principal btn-chico" style="display:none">+ Agregar habitación</button>
+        <button id="btn-volver-menu-admin" class="btn-secundario">← Volver al panel</button>
+      </div>
+    </div>
+    <p id="admin-tabla-msg"></p>
+    <div class="tabla-scroll">
+      <table id="admin-tabla" class="tabla-datos" style="display:none">
+        <thead id="admin-tabla-head"></thead>
+        <tbody id="admin-tabla-body"></tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== MODAL HABITACION (CRUD ADMIN) ===================== -->
+<div id="habitacion-modal" class="modal" style="display:none">
+  <div class="modal-content">
+    <h3 id="habitacion-modal-titulo">Nueva habitación</h3>
+    <p id="habitacion-error" class="error"></p>
+    <form id="habitacion-form">
+      <input type="hidden" id="hab-id">
+
+      <label for="hab-numero">Número</label>
+      <input type="text" id="hab-numero" required>
+
+      <label for="hab-tipo">Tipo</label>
+      <input type="text" id="hab-tipo" placeholder="Sencilla, Doble, Suite..." required>
+
+      <label for="hab-capacidad">Capacidad</label>
+      <input type="number" id="hab-capacidad" min="1" required>
+
+      <label for="hab-precio">Precio por noche</label>
+      <input type="number" id="hab-precio" min="0" step="1" required>
+
+      <label for="hab-descripcion">Descripción</label>
+      <input type="text" id="hab-descripcion">
+
+      <label for="hab-estado">Estado</label>
+      <select id="hab-estado">
+        <option value="DISPONIBLE">Disponible</option>
+        <option value="RESERVADA">Reservada</option>
+        <option value="OCUPADA">Ocupada</option>
+        <option value="PENDIENTE_LIMPIEZA">Pendiente de limpieza</option>
+        <option value="EN_LIMPIEZA">En limpieza</option>
+        <option value="FUERA_DE_SERVICIO">Fuera de servicio</option>
+      </select>
+
+      <button type="submit" id="habitacion-submit-btn">Guardar</button>
+      <button type="button" id="btn-cerrar-habitacion-modal">Cancelar</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===================== MODAL CHECK-IN (ADMIN) ===================== -->
+<div id="checkin-modal" class="modal" style="display:none">
+  <div class="modal-content">
+    <h3>🛎️ Check-in</h3>
+    <p id="checkin-huesped-info" class="checkin-huesped-info"></p>
+    <p id="checkin-error" class="error"></p>
+    <p id="checkin-ok" class="ok"></p>
+    <form id="checkin-form">
+      <input type="hidden" id="checkin-reserva-id">
+
+      <label for="checkin-documento">Documento presentado <span class="req">*</span></label>
+      <input type="text" id="checkin-documento" required placeholder="Verifica el documento del huésped">
+
+      <label for="checkin-acompanantes">Número de acompañantes</label>
+      <input type="number" id="checkin-acompanantes" min="0" value="0">
+
+      <label for="checkin-observaciones">Observaciones (opcional)</label>
+      <textarea id="checkin-observaciones" rows="2" placeholder="Ej: pidió piso alto, llegó con mascota..."></textarea>
+
+      <button type="submit">Confirmar check-in</button>
+      <button type="button" id="btn-cerrar-checkin-modal">Cancelar</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===================== MODAL CHECK-OUT (ADMIN) ===================== -->
+<div id="checkout-modal" class="modal" style="display:none">
+  <div class="modal-content">
+    <h3>🧳 Check-out</h3>
+    <p id="checkout-huesped-info" class="checkin-huesped-info"></p>
+    <p id="checkout-error" class="error"></p>
+    <p id="checkout-ok" class="ok"></p>
+    <form id="checkout-form">
+      <input type="hidden" id="checkout-reserva-id">
+
+      <label for="checkout-estado-habitacion">Estado de la habitación</label>
+      <select id="checkout-estado-habitacion">
+        <option value="OK">✅ Todo en orden</option>
+        <option value="DANOS">⚠️ Hay daños / algo que reportar</option>
+      </select>
+
+      <label for="checkout-observaciones">Observaciones (opcional)</label>
+      <textarea id="checkout-observaciones" rows="2" placeholder="Ej: faltan toallas, aire acondicionado no enfría..."></textarea>
+
+      <button type="submit">Confirmar check-out</button>
+      <button type="button" id="btn-cerrar-checkout-modal">Cancelar</button>
+    </form>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1513 @@
+﻿* { box-sizing: border-box; }
+
+body {
+  font-family: 'Nunito', Arial, sans-serif;
+  background-color: #f2f4f7;
+  color: #24313f;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', 'Nunito', Arial, sans-serif;
+  color: #12406e;
+  margin-top: 0;
+}
+
+.titulo-hotel {
+  font-family: 'Poppins', 'Nunito', Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #12406e;
+}
+
+.req { color: #c94b4b; }
+
+/* -------- login / registro -------- */
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 15px;
+  background: linear-gradient(135deg, #0f5fa8 0%, #12406e 55%, #0a2c4d 100%);
+}
+
+.auth-card {
+  display: flex;
+  width: 100%;
+  max-width: 780px;
+  background-color: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(10, 30, 60, 0.35);
+}
+
+.auth-side {
+  flex: 0 0 42%;
+  background: linear-gradient(160deg, #1a75c4, #0f4c86);
+  color: #ffffff;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.auth-side .titulo-hotel { color: #ffffff; }
+
+.auth-side-logo { font-size: 42px; }
+
+.auth-side-frase {
+  font-size: 14px;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.auth-form-side {
+  flex: 1;
+  padding: 40px 34px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.auth-sub {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: -6px;
+  margin-bottom: 4px;
+}
+
+.auth-form-side form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.auth-form-side label {
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #33465a;
+}
+
+.auth-form-side input,
+.auth-form-side select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 4px;
+  border: 1px solid #d3dbe4;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  background-color: #f8fafc;
+}
+
+.auth-form-side input:focus,
+.auth-form-side select:focus {
+  outline: none;
+  border-color: #1a75c4;
+  background-color: #ffffff;
+}
+
+.auth-form-side button {
+  margin-top: 22px;
+  padding: 11px;
+  background: linear-gradient(135deg, #1a75c4, #0f4c86);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.05s ease-in;
+}
+
+.auth-form-side button:hover { filter: brightness(1.08); }
+.auth-form-side button:active { transform: scale(0.99); }
+
+.auth-switch {
+  margin-top: 16px;
+  font-size: 13px;
+  text-align: center;
+  color: #4b5c6e;
+}
+
+.auth-switch a { color: #1a75c4; font-weight: 700; text-decoration: none; }
+.auth-switch a:hover { text-decoration: underline; }
+
+.error {
+  color: #b3261e;
+  font-size: 13px;
+  min-height: 4px;
+}
+
+.ok {
+  color: #1e7a34;
+  font-size: 13px;
+}
+
+/* -------- barra superior -------- */
+.topbar {
+  background: linear-gradient(120deg, #12406e, #0f5fa8);
+  color: white;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.topbar-admin {
+  background: linear-gradient(120deg, #23303d, #384a5c);
+}
+
+.topbar .titulo-hotel {
+  color: white;
+}
+
+.topbar-derecha {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 14px;
+}
+
+.topbar button {
+  background-color: rgba(255,255,255,0.92);
+  color: #12406e;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.topbar button:hover { background-color: #ffffff; }
+
+.puntos {
+  background-color: #ffcc33;
+  color: #4a3800;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* -------- bienvenida cliente -------- */
+.bienvenida {
+  padding: 40px 20px 45px 20px;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.bienvenida-imagen {
+  margin: 0 auto 20px auto;
+  width: 100%;
+  max-width: 560px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(15, 76, 134, 0.22);
+}
+
+.bienvenida-imagen img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.bienvenida h1 {
+  font-size: 26px;
+}
+
+.bienvenida p {
+  color: #4b5c6e;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 10px auto 25px auto;
+  max-width: 480px;
+}
+
+.btn-principal {
+  padding: 12px 26px;
+  background: linear-gradient(135deg, #1a75c4, #0f4c86);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(15, 76, 134, 0.3);
+}
+
+.btn-principal:hover { filter: brightness(1.08); }
+
+.btn-secundario {
+  padding: 8px 14px;
+  background-color: #e7ecf2;
+  color: #33465a;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-secundario:hover { background-color: #dbe3ec; }
+
+/* -------- habitaciones -------- */
+.habitaciones-section {
+  padding: 20px 24px 45px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.habitaciones-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.rooms-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  margin-top: 18px;
+}
+
+/* -------- grupo por tipo de habitacion -------- */
+.rooms-type-group {
+  --tipo-color: #1a75c4;
+  --tipo-color-claro: #eaf3fc;
+}
+
+.rooms-type-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--tipo-color-claro), #ffffff);
+  border: 1px solid rgba(20, 40, 70, 0.06);
+  border-left: 5px solid var(--tipo-color);
+  border-radius: 12px;
+}
+
+.rooms-type-icon {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--tipo-color);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(20, 40, 70, 0.18);
+}
+
+.rooms-type-icon svg { width: 24px; height: 24px; }
+
+.rooms-type-info { flex: 1 1 200px; }
+
+.rooms-type-info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #16324a;
+}
+
+.rooms-type-info p {
+  margin: 3px 0 0;
+  font-size: 13px;
+  color: #5a6b7d;
+}
+
+.rooms-type-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.rooms-type-desde {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--tipo-color);
+  white-space: nowrap;
+}
+
+.rooms-type-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--tipo-color);
+  background: #ffffff;
+  border: 1px solid var(--tipo-color);
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.rooms-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.room-card {
+  background-color: white;
+  border-radius: 14px;
+  overflow: hidden;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 16px rgba(20, 40, 70, 0.1);
+  border-top: 4px solid var(--tipo-color);
+  transition: transform 0.1s ease-in, box-shadow 0.15s ease-in;
+}
+
+.room-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(20, 40, 70, 0.16);
+}
+
+.room-card-imagen {
+  background: linear-gradient(160deg, #eaf3fc, #d7e9f8);
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.room-card-imagen svg { width: 90px; height: 90px; }
+
+/* -------- galeria de fotos reales en tarjeta de habitacion -------- */
+.room-gallery {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.room-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.room-card .room-gallery-flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 30, 50, 0.45);
+  color: #fff;
+  border: none;
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background 0.15s ease-in;
+}
+
+.room-gallery-flecha:hover { background: rgba(15, 30, 50, 0.75); }
+.room-card .room-gallery-flecha.izq { left: 8px; }
+.room-card .room-gallery-flecha.der { right: 8px; }
+
+.room-gallery-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.room-gallery-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: background 0.15s ease-in;
+}
+
+.room-gallery-dot.activo { background: #ffffff; }
+
+.room-card-body {
+  padding: 14px 16px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.room-card-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.room-card h3 {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+}
+
+.room-card-estado-punto {
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #b6bfc9;
+}
+
+.room-card-estado-punto.disponible {
+  background: #2fae66;
+  box-shadow: 0 0 0 3px rgba(47, 174, 102, 0.18);
+}
+
+.room-card .precio {
+  font-weight: 700;
+  color: #0f4c86;
+  font-size: 15px;
+}
+
+.room-card .descripcion {
+  font-size: 13px;
+  color: #5a6b7d;
+  margin: 6px 0;
+}
+
+.room-card .estado {
+  font-size: 12px;
+  color: #5a6b7d;
+  margin-bottom: 8px;
+}
+
+.room-card .estado.disponible { color: #1e7a34; font-weight: 700; }
+
+.room-card button {
+  width: 100%;
+  margin-top: auto;
+  padding: 9px 10px;
+  background: linear-gradient(135deg, #1a75c4, #0f4c86);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.room-card button:disabled {
+  background: #b6bfc9;
+  cursor: not-allowed;
+}
+
+/* -------- modal reserva -------- */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 20, 35, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal-content {
+  background: white;
+  padding: 24px;
+  width: 320px;
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content label {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #33465a;
+}
+
+.modal-content input {
+  padding: 8px 10px;
+  margin-top: 4px;
+  border: 1px solid #d3dbe4;
+  border-radius: 7px;
+}
+
+.modal-content button {
+  margin-top: 14px;
+  padding: 9px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.modal-content button[type="submit"] {
+  background: linear-gradient(135deg, #1a75c4, #0f4c86);
+  color: white;
+  border: none;
+}
+
+.modal-content button[type="button"] {
+  background-color: #eef1f5;
+  border: 1px solid #d3dbe4;
+  margin-top: 8px;
+}
+
+/* -------- selector de fecha personalizado -------- */
+.date-field {
+  position: relative;
+}
+
+.date-input {
+  width: 100%;
+  cursor: pointer;
+  background: white url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2333465a' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='5' width='18' height='16' rx='2'/><line x1='16' y1='3' x2='16' y2='7'/><line x1='8' y1='3' x2='8' y2='7'/><line x1='3' y1='10' x2='21' y2='10'/></svg>") no-repeat right 10px center;
+  background-size: 16px;
+  padding-right: 32px !important;
+}
+
+.date-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.calendario-popover {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 60;
+  width: 280px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+  padding: 16px;
+  font-family: inherit;
+}
+
+.calendario-popover.oculto {
+  display: none;
+}
+
+.calendario-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.calendario-mes-actual {
+  font-weight: 700;
+  color: #12406e;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.calendario-nav {
+  display: flex;
+  gap: 4px;
+}
+
+.calendario-nav button {
+  border: none;
+  background: #eef1f5;
+  color: #33465a;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendario-nav button:hover {
+  background: #d3dbe4;
+}
+
+.calendario-semana {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 4px;
+}
+
+.calendario-semana span {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #7c8ea1;
+  text-transform: uppercase;
+}
+
+.calendario-dias {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.calendario-dia {
+  border: none;
+  background: none;
+  padding: 0;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #33465a;
+  cursor: pointer;
+}
+
+.calendario-dia:hover:not(:disabled) {
+  background: #eaf2fb;
+}
+
+.calendario-dia.fuera-de-mes {
+  color: #c3ccd6;
+}
+
+.calendario-dia.deshabilitado {
+  color: #c3ccd6;
+  cursor: not-allowed;
+  background: none;
+}
+
+.calendario-dia.ocupado {
+  color: #c3ccd6;
+  cursor: not-allowed;
+  background: #f3f4f6;
+  text-decoration: line-through;
+}
+
+.calendario-dia.hoy {
+  border: 1px solid #1a75c4;
+}
+
+.calendario-dia.seleccionado {
+  background: #1a75c4;
+  color: white;
+  font-weight: 700;
+}
+
+.calendario-pie {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #eef1f5;
+}
+
+.calendario-pie button {
+  border: none;
+  background: none;
+  color: #1a75c4;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.calendario-pie button:hover {
+  text-decoration: underline;
+}
+
+/* -------- admin: menu principal -------- */
+.admin-contenido {
+  padding: 30px 24px 45px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.admin-intro {
+  color: #5a6b7d;
+  margin-top: -4px;
+}
+
+.admin-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.admin-menu-card {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(20, 40, 70, 0.06);
+  transition: transform 0.1s ease-in, box-shadow 0.1s ease-in;
+}
+
+.admin-menu-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(20, 40, 70, 0.14);
+  border-color: #b9d6ef;
+}
+
+.admin-menu-icono { font-size: 34px; }
+
+.admin-menu-titulo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #12406e;
+  font-size: 15px;
+}
+
+.admin-menu-desc {
+  font-size: 12px;
+  color: #6b7c8d;
+  text-align: center;
+}
+
+/* -------- admin: vista de tabla -------- */
+.admin-tabla-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.admin-tabla-acciones {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#buscar-apellido {
+  padding: 8px 12px;
+  border: 1px solid #d3dbe4;
+  border-radius: 7px;
+  font-size: 13px;
+  font-family: inherit;
+  min-width: 200px;
+}
+
+#buscar-apellido:focus {
+  outline: none;
+  border-color: #1a75c4;
+}
+
+.btn-chico {
+  padding: 8px 14px;
+  font-size: 13px;
+  box-shadow: none;
+}
+
+.tbl-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.tbl-btn-editar {
+  background-color: #dbeafe;
+  color: #1a4d8f;
+}
+
+.tbl-btn-editar:hover { background-color: #c3ddfa; }
+
+.tbl-btn-eliminar {
+  background-color: #fbe1df;
+  color: #a3352c;
+}
+
+.tbl-btn-eliminar:hover { background-color: #f7cdc9; }
+
+.tbl-btn-checkin {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.tbl-btn-checkin:hover { background-color: #a7f3d0; }
+
+.tbl-btn-checkout {
+  background-color: #ede9fe;
+  color: #5b21b6;
+}
+
+.tbl-btn-checkout:hover:not(:disabled) { background-color: #ddd6fe; }
+
+.tbl-btn-checkout:disabled {
+  background-color: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.tabla-scroll {
+  overflow-x: auto;
+  margin-top: 14px;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(20, 40, 70, 0.08);
+}
+
+.tabla-datos {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  min-width: 600px;
+}
+
+.tabla-datos th,
+.tabla-datos td {
+  border-bottom: 1px solid #e7ecf2;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 13.5px;
+}
+
+.tabla-datos th {
+  background-color: #12406e;
+  color: white;
+  position: sticky;
+  top: 0;
+}
+
+.tabla-datos tbody tr:hover { background-color: #f4f8fc; }
+
+.badge {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.badge-verde { background-color: #dff5e3; color: #1e7a34; }
+.badge-gris { background-color: #eceff3; color: #566578; }
+.badge-amarillo { background-color: #fff2cc; color: #8a6d00; }
+.badge-rojo { background-color: #fbe1df; color: #a3352c; }
+.badge-azul { background-color: #dbeafe; color: #1a4d8f; }
+
+@media (max-width: 640px) {
+  .auth-card { flex-direction: column; }
+  .auth-side { flex: none; padding: 26px 24px; }
+  .auth-form-side { padding: 26px 24px; }
+}
+.btn-pagar,
+.btn-resena {
+  background: #1a75c4;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.btn-pagar:hover {
+  background: #0f4c86;
+}
+
+.btn-resena {
+  background: #f59e0b;
+}
+
+.btn-resena:hover {
+  background: #d97706;
+}
+
+/* Botón de canje de puntos */
+.btn-puntos {
+  background: #7c3aed;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.btn-puntos:hover {
+  background: #6d28d9;
+}
+
+/* Badges de estado */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-amarillo {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge-verde {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.badge-azul {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.badge-gris {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.badge-rojo {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Niveles de canje */
+.nivel-card {
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 10px 0;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.nivel-card:not(.nivel-bloqueado):hover {
+  border-color: #1a75c4;
+  box-shadow: 0 4px 12px rgba(26, 117, 196, 0.15);
+}
+
+.nivel-bloqueado {
+  opacity: 0.5;
+  background: #f9fafb;
+}
+
+.nivel-card h4 {
+  margin: 0 0 10px 0;
+  color: #1f2937;
+  font-size: 18px;
+}
+
+.nivel-descuento {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a75c4;
+  margin: 10px 0;
+}
+
+.btn-canjear-nivel {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+
+.btn-canjear-nivel:hover:not(:disabled) {
+  background: #059669;
+}
+
+.btn-canjear-nivel:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+#niveles-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+/* Mensajes */
+.ok {
+  color: #065f46;
+  background: #d1fae5;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+.error {
+  color: #991b1b;
+  background: #fee2e2;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+/* Los recuadros de mensaje (.error / .ok) solo deben ocupar espacio y
+   mostrar su fondo de color cuando realmente tienen un mensaje dentro.
+   Mientras estan vacios (sin texto), se ocultan por completo. */
+.error:empty,
+.ok:empty {
+  display: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+  min-height: 0;
+}
+
+/* Ajuste para modales */
+.modal-content {
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-content textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.modal-content input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.modal-content select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+}
+
+
+
+/* ===============================================
+   CSS NUEVO — AGREGAR AL FINAL DE styles.css
+   =============================================== */
+
+/* ---- Badges de estado ---- */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+.badge-amarillo { background: #fef3c7; color: #92400e; }
+.badge-verde    { background: #d1fae5; color: #065f46; }
+.badge-azul     { background: #dbeafe; color: #1e40af; }
+.badge-gris     { background: #e5e7eb; color: #374151; }
+.badge-rojo     { background: #fee2e2; color: #991b1b; }
+
+/* ---- Mensajes ok / error en modales ---- */
+.ok-msg {
+  color: #065f46;
+  background: #d1fae5;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin: 8px 0;
+  font-weight: 500;
+  display: block;
+}
+.ok-msg:empty { display: none; }
+
+.error-msg {
+  color: #991b1b;
+  background: #fee2e2;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin: 8px 0;
+  font-weight: 500;
+  display: block;
+}
+.error-msg:empty { display: none; }
+
+/* ---- Aviso de límite de pago en tarjeta de reserva ---- */
+.limite-pago {
+  color: #92400e;
+  background: #fef3c7;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+.resena-enviada {
+  color: #1e7a34;
+  background: #e6f6ee;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 4px 0 0;
+  text-align: center;
+}
+
+/* ---- Precios con descuento ---- */
+.precio-original {
+  text-decoration: line-through;
+  color: #9ca3af;
+  font-size: 13px;
+  margin: 2px 0;
+}
+.precio-descuento {
+  color: #10b981;
+  font-weight: 700;
+  font-size: 18px;
+}
+.badge-descuento {
+  background: #d1fae5;
+  color: #065f46;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-left: 6px;
+}
+.ahorro-texto {
+  color: #059669;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 2px 0 8px;
+}
+
+.checkin-hecho {
+  font-size: 13px;
+  color: #065f46;
+  background: #d1fae5;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin: 4px 0;
+}
+
+.checkin-huesped-info {
+  font-size: 13px;
+  color: #33465a;
+  background: #eef1f5;
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+
+/* ---- Botones de acción en tarjetas de reserva ---- */
+.btn-pagar {
+  background: #1a75c4;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 10px;
+  width: 100%;
+  transition: background 0.2s;
+}
+.btn-pagar:hover { background: #0f4c86; }
+
+.btn-resena {
+  background: #f59e0b;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 10px;
+  width: 100%;
+  transition: background 0.2s;
+}
+.btn-resena:hover { background: #d97706; }
+
+.btn-cancelar-reserva {
+  background: #dc2626 !important;
+  color: white !important;
+  border: none !important;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 10px;
+  width: 100%;
+  transition: background 0.2s;
+}
+.btn-cancelar-reserva:hover { background: #b91c1c !important; }
+.btn-cancelar-reserva:disabled { background: #f3a6a6 !important; cursor: not-allowed; }
+
+/* ---- Botón de canje en topbar ---- */
+.btn-puntos {
+  background: #7c3aed;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s;
+  margin-left: 8px;
+}
+.btn-puntos:hover { background: #6d28d9; }
+
+/* ---- Modal de canje de puntos ---- */
+.canje-puntos-resumen {
+  background: #ede9fe;
+  color: #4c1d95;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+#niveles-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+
+.nivel-card {
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 18px 12px;
+  text-align: center;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.nivel-card:not(.nivel-bloqueado):hover {
+  border-color: #7c3aed;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.15);
+}
+.nivel-bloqueado {
+  opacity: 0.45;
+  background: #f9fafb;
+}
+.nivel-card h4 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  color: #1f2937;
+}
+.nivel-descuento {
+  font-size: 26px;
+  font-weight: 800;
+  color: #7c3aed;
+  margin: 8px 0;
+}
+.nivel-card p {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 4px 0;
+}
+
+.btn-canjear-nivel {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 10px;
+  width: 100%;
+  transition: background 0.2s;
+}
+.btn-canjear-nivel:hover:not(:disabled) { background: #059669; }
+.btn-canjear-nivel:disabled {
+  background: #d1d5db;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* ---- Ajustes generales de modales ---- */
+.modal-content {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal-content textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+.modal-content input[type="number"],
+.modal-content select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+  background: white;
+}
+
+
+/* ================================================
+   DASHBOARD STYLES — AGREGAR AL FINAL DE styles.css
+   ================================================ */
+
+.dash-seccion {
+  margin-bottom: 32px;
+}
+
+.dash-titulo {
+  font-size: 16px;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 14px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+}
+
+.dash-card {
+  border-radius: 12px;
+  padding: 20px 16px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.dash-card-valor {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: inherit;
+}
+
+.dash-card-label {
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.85;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dash-card-azul   { background: #dbeafe; color: #1e40af; }
+.dash-card-verde  { background: #d1fae5; color: #065f46; }
+.dash-card-morado { background: #ede9fe; color: #4c1d95; }
+.dash-card-naranja{ background: #ffedd5; color: #9a3412; }
+.dash-card-amarillo{ background: #fef3c7; color: #92400e; }
+.dash-card-gris   { background: #f3f4f6; color: #374151; }
+.dash-card-rojo   { background: #fee2e2; color: #991b1b; }
+
+/* Alertas */
+.dash-alertas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dash-alerta {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  border-left: 4px solid #f59e0b;
+}
+
+.dash-alerta-ok {
+  background: #d1fae5;
+  color: #065f46;
+  border-left-color: #10b981;
+}
+
+/* ================= FILTRO DE ESTADO DE RESERVAS ================= */
+#filtro-estado-reserva {
+  padding: 10px 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  background-color: white;
+  color: #33465a;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 180px;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2333465a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  padding-right: 36px;
+}
+
+#filtro-estado-reserva:hover {
+  border-color: #1a75c4;
+  box-shadow: 0 4px 12px rgba(26, 117, 196, 0.1);
+}
+
+#filtro-estado-reserva:focus {
+  outline: none;
+  border-color: #1a75c4;
+  box-shadow: 0 0 0 3px rgba(26, 117, 196, 0.1);
+  background-color: #f8fbff;
+}
+
+#filtro-estado-reserva option {
+  padding: 8px 12px;
+  background-color: white;
+  color: #33465a;
+}
