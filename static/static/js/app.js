@@ -1,5 +1,5 @@
 ﻿
-const API = "http://localhost:8081/api";
+const API = "https://hotel-sinu.onrender.com/api";
 
 let usuarioActual = (() => {
   const guardado = localStorage.getItem("usuarioActual");
