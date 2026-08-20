@@ -100,3 +100,21 @@ Cada parte mantiene su propio Dockerfile:
 - Frontend: `static/static/Dockerfile`
 
 El compose raiz utiliza esos Dockerfiles mediante sus respectivos contextos de construccion.
+
+## Despliegue en Render
+
+Render debe desplegar el backend como un **Web Service** de tipo Docker:
+
+1. Usa este repositorio y configura como **Root Directory** `hotel-api/hotel-api`.
+2. Selecciona **Docker** y usa `hotel-api/hotel-api/Dockerfile`.
+3. No establezcas manualmente `PORT`; Render lo proporciona y Spring Boot lo utiliza automaticamente.
+4. Agrega `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME` y `SPRING_DATASOURCE_PASSWORD` en las variables de entorno.
+5. La base Oracle debe estar alojada externamente, ser accesible desde Internet y permitir conexiones desde Render. `localhost` y `host.docker.internal` no funcionan para una base ubicada en tu computador.
+
+El error `502 Bad Gateway` normalmente significa que el proceso no esta escuchando en el puerto `PORT` o que se detuvo durante el arranque. Revisa los logs de Render: si aparece `UnknownHostException`, `Network is unreachable` o `The Network Adapter could not establish the connection`, corrige primero la URL, el listener, el firewall o la disponibilidad de Oracle.
+
+El frontend estatico debe desplegarse como un servicio separado con directorio publicado `static/static`. Antes de desplegarlo, cambia `static/static/js/app.js` para que `API` apunte a la URL publica del Web Service del backend, por ejemplo:
+
+```javascript
+const API = "https://tu-backend.onrender.com/api";
+```
