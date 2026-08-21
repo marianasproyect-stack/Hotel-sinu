@@ -1,0 +1,51 @@
+services:
+  hotel-db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-hotel}
+      POSTGRES_USER: ${POSTGRES_USER:-hotel}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ho123}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - hotel-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-hotel} -d ${POSTGRES_DB:-hotel}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  hotel-api:
+    build:
+      context: ./hotel-api/hotel-api
+      dockerfile: Dockerfile
+    image: hotel-api:latest
+    ports:
+      - "${BACKEND_PORT:-8081}:8081"
+    depends_on:
+      hotel-db:
+        condition: service_healthy
+    environment:
+      PORT: ${PORT:-8081}
+      TZ: UTC
+      JAVA_TOOL_OPTIONS: -Duser.timezone=UTC
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL:-jdbc:postgresql://hotel-db:5432/hotel}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME:-hotel}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD:-ho123}
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: ${SPRING_DATASOURCE_DRIVER_CLASS_NAME:-org.postgresql.Driver}
+    restart: unless-stopped
+
+  hotel-frontend:
+    build:
+      context: ./static/static
+      dockerfile: Dockerfile
+    image: hotel-frontend:latest
+    ports:
+      - "${FRONTEND_PORT:-8080}:80"
+    depends_on:
+      - hotel-api
+    restart: unless-stopped
+
+volumes:
+  hotel-db-data:
