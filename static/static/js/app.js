@@ -1,5 +1,5 @@
 ﻿
-const API = "https://hotel-sinu.onrender.com/api";
+const API = "https://hotel-sinu-apii.onrender.com";
 
 let usuarioActual = (() => {
   const guardado = localStorage.getItem("usuarioActual");
